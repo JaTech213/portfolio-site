@@ -34,3 +34,26 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
             --paths "/*"
+
+
+
+
+---
+
+## 🛠 Future Improvements
+
+- Tighter Content Security Policy
+- Staging branch deployment
+- Infrastructure as Code (Terraform)
+- Automated testing
+- Custom 404 + redirect rules
+
+---
+
+## Creator
+
+Jared Wilson  
+Cloud & Security Engineer  
+Dallas, Texas  
+
+GitHub: https://github.com/JaTech213
