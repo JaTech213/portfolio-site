@@ -62,7 +62,3 @@ Deployment is fully automated.
 - DNS delegation
 - Automated cloud deployment
 
----
-
-## 📂 Project Structure
-
