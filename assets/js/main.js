@@ -31,16 +31,21 @@
   const revealEls = document.querySelectorAll(".reveal");
 
   if (revealEls.length) {
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
+    // Fallback: if IntersectionObserver isn't available, just show everything
+    if (!("IntersectionObserver" in window)) {
+      revealEls.forEach(el => el.classList.add("is-visible"));
+    } else {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
 
-    revealEls.forEach((el) => io.observe(el));
+      revealEls.forEach((el) => io.observe(el));
+    }
   }
 
   /* =========================
