@@ -67,12 +67,6 @@
 /* =========================
    Scroll Reveal
    ========================= */
-.reveal {
-  opacity: 1;
-  transform: none;
-}
-
-/* Only hide/reveal when JS is confirmed */
 /* TEMP FIX (makes site visible immediately) */
 
 .reveal {
