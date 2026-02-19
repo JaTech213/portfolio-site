@@ -5,8 +5,8 @@ on:
     branches: ["main"]
 
 permissions:
-  id-token: write   # required for OIDC
-  contents: read    # checkout code
+  id-token: write
+  contents: read
 
 jobs:
   deploy:
@@ -22,38 +22,17 @@ jobs:
           role-to-assume: ${{ secrets.AWS_ROLE_ARN }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync site to S3
+      - name: Sync site to S3 (only web files)
         run: |
           aws s3 sync . s3://${{ secrets.S3_BUCKET }} \
             --delete \
             --exclude ".git/*" \
-            --exclude ".github/*"
+            --exclude ".github/*" \
+            --exclude "README*" \
+            --exclude "*.md"
 
       - name: Invalidate CloudFront cache
         run: |
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/*"
-
-
-
-
----
-
-## 🛠 Future Improvements
-
-- Tighter Content Security Policy
-- Staging branch deployment
-- Infrastructure as Code (Terraform)
-- Automated testing
-- Custom 404 + redirect rules
-
----
-
-## Creator
-
-Jared Wilson  
-Cloud & Security Engineer  
-Dallas, Texas  
-
-GitHub: https://github.com/JaTech213
+            --paths "/index.html" "/assets/*"
