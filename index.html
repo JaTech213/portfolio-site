@@ -16,6 +16,10 @@
 </head>
 
 <body>
+
+  <!-- Ambient Snow Layer -->
+  <canvas id="bgSnow" class="bg-canvas" aria-hidden="true"></canvas>
+
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
@@ -36,13 +40,17 @@
 
   <main id="main">
     <section class="hero reveal">
+
+      <!-- Terminal Background -->
+      <div class="terminal-bg" aria-hidden="true"></div>
+
       <div class="container hero-grid">
         <div>
           <p class="kicker">Hybrid Infrastructure • Cloud Security • Automation</p>
           <h1>Building secure, reliable systems with practical ops experience.</h1>
           <p class="lede">
-            Senior IT Support Analyst (Contract) at NTT DATA North America. Background in IT support/NOC,
-            now focused on hybrid infrastructure + multi-cloud security + automation.
+            Senior IT Support Analyst (Contract) at NTT DATA North America.
+            Background in IT support/NOC, now focused on hybrid infrastructure + multi-cloud security + automation.
           </p>
 
           <div class="hero-cta">
@@ -74,115 +82,3 @@
             <li>AWS SAA + Cloud Practitioner (2026)</li>
             <li>Hands-on troubleshooting, Windows + networking fundamentals</li>
           </ul>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects" class="section reveal">
-      <div class="container">
-        <h2>Projects</h2>
-        <p class="muted">A few things I’ve built / am building.</p>
-
-        <div class="grid">
-          <article class="tile reveal">
-            <h3>AWS Static Portfolio (This Site)</h3>
-            <p>Secure static hosting with CloudFront + ACM, deployed via GitHub Actions (OIDC).</p>
-            <ul class="tags">
-              <li>AWS</li><li>CloudFront</li><li>S3</li><li>ACM</li><li>CI/CD</li>
-            </ul>
-            <div class="links">
-              <a href="#" aria-disabled="true">Write-up (soon)</a>
-              <a href="#" aria-disabled="true">Repo (soon)</a>
-            </div>
-          </article>
-
-          <article class="tile reveal">
-            <h3>Home Networking Lab</h3>
-            <p>Hands-on OSI troubleshooting, VLANs, DNS, and monitoring experiments.</p>
-            <ul class="tags">
-              <li>Networking</li><li>DNS</li><li>Monitoring</li>
-            </ul>
-            <div class="links">
-              <a href="#" aria-disabled="true">Notes (soon)</a>
-            </div>
-          </article>
-
-          <article class="tile reveal">
-            <h3>Security Automation (Planned)</h3>
-            <p>Automations around log triage and guardrails for cloud resources.</p>
-            <ul class="tags">
-              <li>Automation</li><li>Security</li><li>IaC</li>
-            </ul>
-            <div class="links">
-              <a href="#" aria-disabled="true">Plan (soon)</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="section alt reveal">
-      <div class="container">
-        <h2>Skills</h2>
-        <div class="columns">
-          <div>
-            <h3>Cloud</h3>
-            <ul class="list">
-              <li>AWS (S3, CloudFront, IAM, Route 53, CloudWatch)</li>
-              <li>Security fundamentals + best practices</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Infrastructure</h3>
-            <ul class="list">
-              <li>Windows troubleshooting, endpoint support</li>
-              <li>Networking fundamentals (DNS, routing, OSI)</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Automation</h3>
-            <ul class="list">
-              <li>GitHub Actions (CI/CD)</li>
-              <li>Scripting (Bash, Powershell & Python)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="certs" class="section reveal">
-      <div class="container">
-        <h2>Certifications</h2>
-        <div class="certs">
-          <div class="cert">CompTIA Security+ (2024)</div>
-          <div class="cert">CompTIA CySA+ (2024)</div>
-          <div class="cert">AWS SAA (2026)</div>
-          <div class="cert">AWS Cloud Practitioner (2026)</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section alt reveal">
-      <div class="container">
-        <h2>Contact</h2>
-        <p class="muted">"Email me" in progress, clck copy email to grab address.</p>
-
-        <div class="contact">
-          <a class="btn" href="mailto:you@domain.com?subject=Portfolio%20Contact">Email me</a>
-          <button class="btn ghost" id="copyEmail" type="button">Copy email</button>
-          <span class="small" id="copyStatus" role="status" aria-live="polite"></span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-row">
-      <span>© <span id="year"></span> Jared Wilson</span>
-      <span class="muted">Built on AWS • Deployed with GitHub Actions</span>
-    </div>
-  </footer>
-
-  <script src="assets/js/main.js" defer></script>
-</body>
-</html>
