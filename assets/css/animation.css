@@ -73,16 +73,13 @@
 }
 
 /* Only hide/reveal when JS is confirmed */
-.js .reveal {
-  opacity: 0;
-  transform: translateY(14px);
-  transition: opacity 600ms ease, transform 600ms ease;
+/* TEMP FIX (makes site visible immediately) */
+
+.reveal {
+  opacity: 1 !important;
+  transform: none !important;
 }
 
-.js .reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 @media (prefers-reduced-motion: reduce){
   .terminal-bg,
