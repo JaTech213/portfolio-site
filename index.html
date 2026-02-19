@@ -11,6 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/animation.css" />
   <link rel="icon" href="data:," />
 </head>
 
@@ -20,7 +21,7 @@
   <header class="site-header">
     <div class="container header-row">
       <div class="brand">
-        <span class="dot" aria-hidden="true"></span>
+        <span class="status-dot" aria-hidden="true"></span>
         <span>Jared Wilson</span>
       </div>
 
@@ -34,7 +35,7 @@
   </header>
 
   <main id="main">
-    <section class="hero">
+    <section class="hero reveal">
       <div class="container hero-grid">
         <div>
           <p class="kicker">Hybrid Infrastructure • Cloud Security • Automation</p>
@@ -77,13 +78,13 @@
       </div>
     </section>
 
-    <section id="projects" class="section">
+    <section id="projects" class="section reveal">
       <div class="container">
         <h2>Projects</h2>
         <p class="muted">A few things I’ve built / am building.</p>
 
         <div class="grid">
-          <article class="tile">
+          <article class="tile reveal">
             <h3>AWS Static Portfolio (This Site)</h3>
             <p>Secure static hosting with CloudFront + ACM, deployed via GitHub Actions (OIDC).</p>
             <ul class="tags">
@@ -95,7 +96,7 @@
             </div>
           </article>
 
-          <article class="tile">
+          <article class="tile reveal">
             <h3>Home Networking Lab</h3>
             <p>Hands-on OSI troubleshooting, VLANs, DNS, and monitoring experiments.</p>
             <ul class="tags">
@@ -106,7 +107,7 @@
             </div>
           </article>
 
-          <article class="tile">
+          <article class="tile reveal">
             <h3>Security Automation (Planned)</h3>
             <p>Automations around log triage and guardrails for cloud resources.</p>
             <ul class="tags">
@@ -120,7 +121,7 @@
       </div>
     </section>
 
-    <section id="skills" class="section alt">
+    <section id="skills" class="section alt reveal">
       <div class="container">
         <h2>Skills</h2>
         <div class="columns">
@@ -149,7 +150,7 @@
       </div>
     </section>
 
-    <section id="certs" class="section">
+    <section id="certs" class="section reveal">
       <div class="container">
         <h2>Certifications</h2>
         <div class="certs">
@@ -161,7 +162,7 @@
       </div>
     </section>
 
-    <section id="contact" class="section alt">
+    <section id="contact" class="section alt reveal">
       <div class="container">
         <h2>Contact</h2>
         <p class="muted">"Email me" in progress, clck copy email to grab address.</p>
