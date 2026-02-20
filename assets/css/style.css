@@ -94,9 +94,8 @@ h1{
 .section{ padding:54px 0; }
 
 .section.alt{
-  background: transparent; /* REMOVE gray banding */
-  border-top:1px solid var(--border);
-  border-bottom:1px solid var(--border);
+  background: transparent;
+  border: none;
 }
 
 .grid{
