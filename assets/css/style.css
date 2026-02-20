@@ -126,7 +126,6 @@ h1{
   text-align: center;
 }
 
-
 @media (max-width: 920px){
   .hero-grid{ grid-template-columns:1fr; }
   .grid{ grid-template-columns:1fr; }
