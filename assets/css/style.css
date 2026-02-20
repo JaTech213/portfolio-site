@@ -120,9 +120,10 @@ h1{
   font-size:12px;
 }
 
-.site-footer{
-  padding:22px 0;
-  border-top: 1px solid var(--border);
+.site-footer {
+  border: none !important;
+  padding: 2rem 0;
+  text-align: center;
 }
 
 @media (max-width: 920px){
