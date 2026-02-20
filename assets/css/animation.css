@@ -1,15 +1,4 @@
 /* =========================
-   Snow Canvas
-   ========================= */
-.bg-canvas{
-  position:fixed;
-  inset:0;
-  z-index:0;
-  pointer-events:none;
-  opacity:.15;
-}
-
-/* =========================
    Terminal Background
    ========================= */
 .hero{
@@ -51,6 +40,21 @@
   10%{ opacity:1; transform:translateY(0); }
   80%{ opacity:.5; }
   100%{ opacity:0; transform:translateY(-30px); }
+}
+
+/* =========================
+   Snow Canvas
+   ========================= */
+.bg-canvas{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+
+  /* Put snow above the terminal layer but below content */
+  z-index: 1;
+
+  /* More visible but still subtle */
+  opacity: .45;
 }
 
 /* =========================
