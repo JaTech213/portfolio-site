@@ -21,7 +21,13 @@
 </head>
 
 <body>
+
+<!-- Lightning canvas (above snow, below content) -->
+<canvas id="bgLightning" class="fx-canvas" aria-hidden="true"></canvas>
+  
   <!-- Ambient Snow Layer -->
+
+  
   <canvas id="bgSnow" class="bg-canvas" aria-hidden="true"></canvas>
 
   <header class="site-header">
@@ -36,12 +42,6 @@
       </nav>
     </div>
   </header>
-
-  <div id="storm-overlay" aria-hidden="true">
-  <div class="lightning l1"></div>
-  <div class="lightning l2"></div>
-  <div class="lightning l3"></div>
-</div>
 
   <main id="main">
     <section class="hero reveal">
