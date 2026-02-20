@@ -168,27 +168,6 @@
     setInterval(spawn, 900);
   })();
 
-  (() => {
-  const canvas = document.getElementById("bgLightning");
-  if (!canvas) return;
-
-  const ctx = canvas.getContext("2d", { alpha: true });
-
-  const DPR = Math.min(2, window.devicePixelRatio || 1);
-  let W = 0, H = 0;
-
-  function resize() {
-    W = Math.floor(window.innerWidth);
-    H = Math.floor(window.innerHeight);
-    canvas.width = Math.floor(W * DPR);
-    canvas.height = Math.floor(H * DPR);
-    canvas.style.width = W + "px";
-    canvas.style.height = H + "px";
-    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
-  }
-  window.addEventListener("resize", resize);
-  resize();
-
   /* =========================
      Parallax Drift (Subtle)
   ========================= */
