@@ -64,13 +64,28 @@ a:hover{ text-decoration:underline; }
   border:1px solid var(--border);
   background: rgba(255,255,255,.05);
   font-weight:600;
+
+  /* ✅ ADD THIS */
+  color: rgba(255,255,255,.88);
 }
 
-.btn:hover{ background: rgba(255,255,255,.09); }
+.btn:hover{
+  background: rgba(255,255,255,.09);
+  /* optional: slightly brighten on hover */
+  color: #fff;
+}
 
 .btn.ghost{
   border:1px solid var(--border);
   background: rgba(255,255,255,.04);
+
+  /* ✅ ADD THIS */
+  color: rgba(255,255,255,.72);
+}
+
+.btn.ghost:hover{
+  background: rgba(255,255,255,.08);
+  color: rgba(255,255,255,.92);
 }
 
 .hero{ padding:64px 0 24px; }
