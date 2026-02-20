@@ -87,7 +87,7 @@
       r: 0.5 + Math.random() * 1.8,
       vy: 0.35 + Math.random() * 1,
       vx: -0.2 + Math.random() * 0.4,
-      a: 0.05 + Math.random() * 0.15
+      a: 0.12 + Math.random() * 0.22
     }));
 
     let raf;
