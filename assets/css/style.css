@@ -162,6 +162,45 @@ h1{
   border-radius: 12px;
 }
 
+/* Projects: expandable overview */
+.linklike {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.linklike:hover {
+  opacity: 1;
+}
+
+.project-overview {
+  margin-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+}
+
+.overview-inner {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+.codeblock {
+  padding: 12px;
+  border-radius: 12px;
+  overflow-x: auto;
+  line-height: 1.35;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(0, 0, 0, 0.35);
+  margin: 10px 0 12px;
+}
+
 .site-footer {
   border: none !important;
   padding: 2rem 0;
