@@ -91,13 +91,63 @@
 
         <div class="grid">
           <article class="tile reveal">
-            <h3>AWS Static Portfolio (This Site)</h3>
-            <p>Secure static hosting with CloudFront + ACM, deployed via GitHub Actions.</p>
-            
-            <div class="links">
-              <a href="#" aria-disabled="true">Overview (finishing)</a>
-            </div>
-          </article>
+  <h3>AWS Static Portfolio (This Site)</h3>
+  <p>Secure static hosting with CloudFront + ACM, deployed via GitHub Actions.</p>
+
+  <div class="links">
+    <button class="linklike" type="button" data-toggle="aws-overview" aria-expanded="false">
+      Overview
+    </button>
+  </div>
+
+  <!-- Expandable write-up -->
+  <div id="aws-overview" class="project-overview" hidden>
+    <div class="overview-inner">
+      <h4>How I built it</h4>
+      <p class="muted">
+        This site is hosted securely on AWS using S3 + CloudFront + ACM + Route 53, deployed automatically
+        via GitHub Actions using OIDC (no long-lived AWS keys).
+      </p>
+
+      <h5>Architecture</h5>
+      <pre class="codeblock">
+Developer (push main)
+        |
+        v
+GitHub Repo  ---> GitHub Actions (OIDC)
+                    |
+                    v
+           IAM Role (least privilege)
+                    |
+                    v
+          S3 Bucket (private origin)
+                    |
+                    v
+       CloudFront (OAC + HTTPS + cache)
+                    |
+        Route 53 + ACM (TLS cert)
+                    |
+                    v
+              jaredwilson.me
+      </pre>
+
+      <h5>Step-by-step</h5>
+      <ol class="list">
+        <li><strong>Built the static site</strong> (HTML/CSS/JS).</li>
+        <li><strong>Created a private S3 bucket</strong> to store site files.</li>
+        <li><strong>Created CloudFront</strong> with <strong>Origin Access Control (OAC)</strong> to keep S3 private.</li>
+        <li><strong>Issued an ACM certificate</strong> in <strong>us-east-1</strong> for HTTPS on CloudFront.</li>
+        <li><strong>Delegated DNS</strong> from GoDaddy to <strong>Route 53</strong> and pointed the domain to CloudFront.</li>
+        <li><strong>Added security headers</strong> via a CloudFront Response Headers Policy.</li>
+        <li><strong>Automated deployments</strong> with GitHub Actions (OIDC assume-role → S3 sync → CloudFront invalidation).</li>
+      </ol>
+
+      <p class="muted">
+        Result: every push to <code>main</code> deploys automatically and invalidates CloudFront so updates appear fast.
+      </p>
+    </div>
+  </div>
+</article>
 
           <article class="tile reveal">
             <h3>Home NetLab</h3>
