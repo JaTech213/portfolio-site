@@ -168,6 +168,28 @@
     setInterval(spawn, 900);
   })();
 
+  // Toggle expandable project overviews
+document.querySelectorAll("[data-toggle]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const targetId = btn.getAttribute("data-toggle");
+    const panel = document.getElementById(targetId);
+    if (!panel) return;
+
+    const isOpen = !panel.hasAttribute("hidden");
+
+    // Close any other open overviews (optional: keeps it tidy)
+    document.querySelectorAll(".project-overview").forEach((p) => p.setAttribute("hidden", ""));
+    document.querySelectorAll("[data-toggle]").forEach((b) => b.setAttribute("aria-expanded", "false"));
+
+    if (!isOpen) {
+      panel.removeAttribute("hidden");
+      btn.setAttribute("aria-expanded", "true");
+      // Optional: smooth scroll to keep it in view
+      panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  });
+});
+
   /* =========================
      Parallax Drift (Subtle)
   ========================= */
