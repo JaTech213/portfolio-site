@@ -201,6 +201,86 @@ h1{
   margin: 10px 0 12px;
 }
 
+/* Clickable "Overview" (button styled like a link) */
+.linklike {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.92;
+  text-decoration: none;
+}
+
+.linklike:hover { opacity: 1; }
+
+.linklike:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.25);
+  outline-offset: 6px;
+  border-radius: 10px;
+}
+
+/* Beaming glow to indicate "click me" */
+.linklike.glow .linklike-text {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  text-shadow: 0 0 10px rgba(130, 255, 210, 0.18);
+  animation: overviewGlow 1.6s ease-in-out infinite;
+}
+
+@keyframes overviewGlow {
+  0%, 100% { text-shadow: 0 0 10px rgba(130, 255, 210, 0.12); }
+  50%      { text-shadow: 0 0 18px rgba(130, 255, 210, 0.30); }
+}
+
+/* Chevron rotate */
+.chevron {
+  transition: transform 220ms ease;
+  opacity: 0.85;
+}
+
+.linklike[aria-expanded="true"] .chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* Expand/collapse animation wrapper */
+.project-overview {
+  margin-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 14px;
+}
+
+/* This is what we animate */
+.project-overview-clip {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-2px);
+  transition: max-height 320ms ease, opacity 220ms ease, transform 220ms ease;
+  will-change: max-height, opacity, transform;
+}
+
+/* Open state */
+.project-overview.open .project-overview-clip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Your existing inner card styling (keep if you already have it) */
+.overview-inner {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  padding: 14px;
+}
+
+
 .site-footer {
   border: none !important;
   padding: 2rem 0;
