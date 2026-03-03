@@ -168,24 +168,56 @@
     setInterval(spawn, 900);
   })();
 
-  // Toggle expandable project overviews
+ // Smooth expandable project overview (chevron + animation)
 document.querySelectorAll("[data-toggle]").forEach((btn) => {
   btn.addEventListener("click", () => {
     const targetId = btn.getAttribute("data-toggle");
     const panel = document.getElementById(targetId);
     if (!panel) return;
 
-    const isOpen = !panel.hasAttribute("hidden");
+    const clip = panel.querySelector(".project-overview-clip");
+    if (!clip) return;
 
-    // Close any other open overviews (optional: keeps it tidy)
-    document.querySelectorAll(".project-overview").forEach((p) => p.setAttribute("hidden", ""));
-    document.querySelectorAll("[data-toggle]").forEach((b) => b.setAttribute("aria-expanded", "false"));
+    const isOpen = panel.classList.contains("open");
 
-    if (!isOpen) {
+    // Close others (keeps layout clean)
+    document.querySelectorAll(".project-overview.open").forEach((p) => {
+      if (p === panel) return;
+      const c = p.querySelector(".project-overview-clip");
+      const b = document.querySelector(`[data-toggle="${p.id}"]`);
+      if (c) {
+        c.style.maxHeight = c.scrollHeight + "px";
+        requestAnimationFrame(() => (c.style.maxHeight = "0px"));
+      }
+      p.classList.remove("open");
+      p.setAttribute("hidden", "");
+      if (b) b.setAttribute("aria-expanded", "false");
+    });
+
+    if (isOpen) {
+      // Close
+      clip.style.maxHeight = clip.scrollHeight + "px";
+      requestAnimationFrame(() => {
+        clip.style.maxHeight = "0px";
+        panel.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+      });
+
+      setTimeout(() => panel.setAttribute("hidden", ""), 340);
+    } else {
+      // Open
       panel.removeAttribute("hidden");
+      panel.classList.add("open");
       btn.setAttribute("aria-expanded", "true");
-      // Optional: smooth scroll to keep it in view
-      panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+      clip.style.maxHeight = "0px";
+      requestAnimationFrame(() => {
+        clip.style.maxHeight = clip.scrollHeight + "px";
+      });
+
+      setTimeout(() => {
+        panel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }, 120);
     }
   });
 });
