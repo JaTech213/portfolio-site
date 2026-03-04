@@ -146,6 +146,16 @@ GitHub Repo  ---> GitHub Actions (OIDC)
         <li><strong>Automated deployments</strong> with GitHub Actions (OIDC assume-role → S3 sync → CloudFront invalidation).</li>
       </ol>
 
+      <h5>Deployment Evidence</h5>
+
+<div class="screenshot-grid">
+  <img src="assets/screenshots/aws-static-site/acm-overview.png" alt="ACM Certificate">
+  <img src="assets/screenshots/aws-static-site/cloudfront-overview.png" alt="CloudFront Distribution">
+  <img src="assets/screenshots/aws-static-site/route53-overview.png" alt="Route 53 Hosted Zone">
+  <img src="assets/screenshots/aws-static-site/s3-bucket-overview-1.png" alt="S3 Bucket Overview">
+  <img src="assets/screenshots/aws-static-site/github-actions-overview.png" alt="GitHub Actions Deployment">
+</div>
+
       <p class="muted">
         Result: every push to <code>main</code> deploys automatically and invalidates CloudFront so updates appear fast.
       </p>
