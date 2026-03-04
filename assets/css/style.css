@@ -280,6 +280,24 @@ h1{
   padding: 14px;
 }
 
+.screenshot-single {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.screenshot-single img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 0 20px rgba(0, 140, 255, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.screenshot-single img:hover {
+  transform: scale(1.02);
+}
+
 
 .site-footer {
   border: none !important;
