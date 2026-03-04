@@ -154,13 +154,99 @@ GitHub Repo  ---> GitHub Actions (OIDC)
 </article>
 
           <article class="tile reveal">
-            <h3>WilsonC0re + r0sa [v.01]</h3>
-            <p>I built a 3-tier Linux infrastructure lab to demonstrate production-style server administration and secure service segmentation.</p>
-            
-            <div class="links">
-              <a href="#" aria-disabled="true">Write-up (in-progress)</a>
-            </div>
-          </article>
+  <h3>wilsonc0re + r0sa miniLab</h3>
+  <p>3-tier Linux infrastructure lab to demonstrate production-style server administration and secure service segmentation.</p>
+
+  <div class="links">
+    <button class="linklike glow" type="button" data-toggle="wilsonlab-overview" aria-expanded="false">
+      <span class="linklike-text">Overview</span>
+      <svg class="chevron" width="16" height="16" viewBox="0 0 24 24">
+        <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Expandable overview -->
+  <div id="wilsonlab-overview" class="project-overview" hidden>
+    <div class="project-overview-clip">
+      <div class="overview-inner">
+
+        <h4>wilsonc0re + wilsonr0sa Lab Architecture</h4>
+
+        <pre class="codeblock">
+User Browser (Windows Host)
+        │
+        │ HTTPS 443
+        ▼
+wilsonc0re-01
+Reverse Proxy Node
+• Nginx
+• TLS Termination
+• Reverse Proxy
+192.168.56.101
+        │
+        │ HTTP Proxy
+        ▼
+wilsonr0sa-01
+Application Server
+• Nginx
+• Gunicorn
+• Flask API
+Endpoints:
+/api/health
+/api/db
+192.168.56.102
+        │
+        │ PostgreSQL 5432
+        ▼
+wilsondb-01
+Database Node
+• PostgreSQL
+• wilsonapp database
+• wilsonappuser
+192.168.56.103
+        </pre>
+
+        <h5>Overview</h5>
+        <p class="muted">
+        This project is a multi-node infrastructure lab designed to simulate a secure web application stack.
+        The environment includes a reverse proxy, application server, and database server running on separate
+        virtual machines to demonstrate network segmentation, service isolation, and reverse proxy routing.
+        </p>
+
+        <h5>Stack Components</h5>
+        <ul class="list">
+          <li><strong>wilsonc0re-01</strong> – Nginx reverse proxy with TLS termination</li>
+          <li><strong>wilsonr0sa-01</strong> – Flask API served via Gunicorn</li>
+          <li><strong>wilsondb-01</strong> – PostgreSQL backend database</li>
+        </ul>
+
+        <h5>API Endpoints</h5>
+        <ul class="list">
+          <li><code>/api/health</code> – Service health check</li>
+          <li><code>/api/db</code> – Database connectivity test</li>
+        </ul>
+
+        <h5>Build Steps</h5>
+        <ol class="list">
+          <li>Created three Linux virtual machines for proxy, application, and database tiers.</li>
+          <li>Configured PostgreSQL on <strong>wilsondb-01</strong> with a dedicated database and user.</li>
+          <li>Built a Flask API on <strong>wilsonr0sa-01</strong> to expose health and database endpoints.</li>
+          <li>Served the Flask app using <strong>Gunicorn</strong> behind Nginx.</li>
+          <li>Configured <strong>wilsonc0re-01</strong> as a reverse proxy with TLS termination.</li>
+          <li>Configured Nginx upstream routing from proxy → application server.</li>
+          <li>Validated connectivity from client → proxy → API → database.</li>
+        </ol>
+
+        <p class="muted">
+        This lab demonstrates multi-tier architecture design, reverse proxy routing, API service deployment,
+        and database integration across segmented infrastructure nodes.
+        </p>
+
+      </div>
+    </div>
+  </div>
+</article>
 
           <article class="tile reveal">
             <h3>Wilson Technologies Inc (Building)</h3>
